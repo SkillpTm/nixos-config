@@ -12,18 +12,27 @@
 
 	console.keyMap = "de";
 
-	environment.systemPackages = with pkgs; [
-		git
-		kitty
-		nvd
+	environment = {
+		plasma6.excludePackages = with pkgs.kdePackages; [
+			elisa
+			kate
+			khelpcenter
+			kinfocenter
+		];
 
-		(pkgs.writers.writeFishBin "nswitch"
-			(builtins.readFile ../../commands/nswitch.fish)
-		)
-		(pkgs.writers.writeFishBin "nupdate"
-			(builtins.readFile ../../commands/nupdate.fish)
-		)
-	];
+		systemPackages = with pkgs; [
+			git
+			kitty
+			nvd
+
+			(pkgs.writers.writeFishBin "nswitch"
+				(builtins.readFile ../../commands/nswitch.fish)
+			)
+			(pkgs.writers.writeFishBin "nupdate"
+				(builtins.readFile ../../commands/nupdate.fish)
+			)
+		];
+	};
 
 	i18n = {
 		defaultLocale = "en_US.UTF-8";
@@ -71,6 +80,7 @@
 
 		xserver = {
 			enable = true;
+			excludePackages = [ pkgs.xterm ];
 
 			xkb = {
 				layout = "de";
@@ -93,8 +103,14 @@
 		];
 
 		packages = with pkgs; [
+			bitwarden-desktop
 			discord-canary
+			docker
 			fastfetch
+			gimp-with-plugins
+			mpv
+			python314
+			tutanota-desktop
 		];
 	};
 }

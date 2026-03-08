@@ -27,6 +27,9 @@
 		description = "Skillp";
 
 		packages = with pkgs; [
+			go
+			steam
+			vlc
 		];
 	};
 }
