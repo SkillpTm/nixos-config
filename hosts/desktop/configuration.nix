@@ -27,9 +27,11 @@
 		description = "Skillp";
 
 		packages = with pkgs; [
+			ffmpeg
 			go
 			steam
 			vlc
+			yt-dlp
 		];
 	};
 }
