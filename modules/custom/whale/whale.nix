@@ -13,6 +13,7 @@ pkgs.stdenv.mkDerivation rec {
 	nativeBuildInputs = with pkgs; [
 		autoPatchelfHook
 		binutils
+		makeWrapper
 		xz
 		gnutar
 	];
@@ -75,12 +76,16 @@ pkgs.stdenv.mkDerivation rec {
 	'';
 
 	installPhase = ''
-		mkdir -p $out/bin
+		mkdir -p $out/bin $out/share/applications
 		cp -rp opt/naver/whale/* $out/
-		ln -s $out/naver-whale $out/bin/naver-whale
 
-		# Fix the desktop file
-		mkdir -p $out/share/applications
+		# Wrap the binary to include necessary runtime paths and flags
+		makeWrapper $out/naver-whale $out/bin/naver-whale \
+			--prefix LD_LIBRARY_PATH : "${pkgs.lib.makeLibraryPath buildInputs}" \
+			--add-flags "--no-sandbox" \
+			--add-flags "--test-type"
+
+		# Fix the desktop file to point to our wrapped binary
 		cp usr/share/applications/naver-whale.desktop $out/share/applications/
 		substituteInPlace $out/share/applications/naver-whale.desktop \
 			--replace "/usr/bin/naver-whale" "$out/bin/naver-whale"
