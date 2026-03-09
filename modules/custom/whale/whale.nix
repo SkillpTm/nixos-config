@@ -87,6 +87,8 @@ pkgs.stdenv.mkDerivation rec {
 			--add-flags "--test-type"
 
 		cp usr/share/applications/naver-whale.desktop $out/share/applications/
+		substituteInPlace $out/share/applications/naver-whale.desktop \
+			--replace "/usr/bin/naver-whale-stable" "$out/bin/naver-whale"
 
 		cp opt/naver/whale/product_logo_256.png $out/share/icons/hicolor/256x256/apps/naver-whale.png
 		substituteInPlace $out/share/applications/naver-whale.desktop \
