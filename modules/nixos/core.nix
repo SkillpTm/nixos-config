@@ -108,6 +108,7 @@
 			docker
 			fastfetch
 			gimp-with-plugins
+			kdePackages.partitionmanager
 			mpv
 			python314
 			tutanota-desktop

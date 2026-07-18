@@ -6,16 +6,15 @@ pkgs.stdenv.mkDerivation rec {
 
 	src = pkgs.fetchurl {
 		url = "https://update.whale.naver.net/downloads/installers/naver-whale-stable_amd64.deb";
-		# Ensure you use the SRI hash you generated earlier
 		sha256 = "0v84abngbb5jkh40rcsfvvccxyhzza3qnwxm5w60hb230hii326h"; 
 	};
 
 	nativeBuildInputs = with pkgs; [
 		autoPatchelfHook
 		binutils
+		gnutar
 		makeWrapper
 		xz
-		gnutar
 	];
 
 	buildInputs = with pkgs; [
@@ -60,7 +59,6 @@ pkgs.stdenv.mkDerivation rec {
 		keyutils
 	];
 
-	# This ignores the Qt shims that were causing the build to fail
 	autoPatchelfIgnoreMissingDeps = [
 		"libQt6Core.so.6"
 		"libQt6Gui.so.6"
