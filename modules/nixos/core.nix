@@ -109,6 +109,7 @@
 			docker
 			fastfetch
 			gimp-with-plugins
+			kdePackages.isoimagewriter
 			mpv
 			python314
 			tutanota-desktop
