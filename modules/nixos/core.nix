@@ -108,6 +108,7 @@
 			docker
 			fastfetch
 			gimp-with-plugins
+			kdePackages.kpmcore
 			kdePackages.partitionmanager
 			mpv
 			python314
