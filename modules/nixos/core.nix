@@ -61,6 +61,7 @@
 
 	programs = {
 		fish.enable = true;
+		partition-manager.enable = true;
 	};
 
 	security.rtkit.enable = true;
@@ -108,8 +109,6 @@
 			docker
 			fastfetch
 			gimp-with-plugins
-			kdePackages.kpmcore
-			kdePackages.partitionmanager
 			mpv
 			python314
 			tutanota-desktop
