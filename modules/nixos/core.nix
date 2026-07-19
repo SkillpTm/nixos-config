@@ -107,7 +107,6 @@
 		];
 
 		packages = with pkgs; [
-			bitwarden-desktop
 			discord-canary
 			docker
 			fastfetch
