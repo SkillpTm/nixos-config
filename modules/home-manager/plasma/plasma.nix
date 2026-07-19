@@ -10,7 +10,7 @@ let
 
 		widgets = [
 			{
-				kickoff.icon = "${../../../assets/logos/nixos-white.png}";
+				kickoff.icon = "nixos-logo-white";
 			}
 
 			"org.kde.plasma.pager"

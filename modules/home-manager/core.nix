@@ -24,6 +24,8 @@
 				};
 
 				dataFile = {
+					"icons/hicolor/scalable/apps/nixos-logo-white.png".source = ../../assets/logos/nixos-white.png;
+
 					"wallpapers/Cheshire.jpg".source = ../../assets/wallpapers/Cheshire.jpg;
 					"wallpapers/Ryujin.jpeg".source = ../../assets/wallpapers/Ryujin.jpeg;
 					"wallpapers/Stage.jpeg".source = ../../assets/wallpapers/Stage.jpeg;
