@@ -21,6 +21,9 @@
 		];
 
 		systemPackages = with pkgs; [
+			_7zz
+			btop
+			file
 			git
 			kitty
 			nvd
@@ -53,7 +56,7 @@
 			LC_NUMERIC = "de_DE.UTF-8";
 			LC_PAPER = "de_DE.UTF-8";
 			LC_TELEPHONE = "de_DE.UTF-8";
-			LC_TIME = "de_DE.UTF-8";
+			LC_TIME = "en_GB.UTF-8";
 		};
 	};
 
@@ -111,16 +114,20 @@
 		];
 
 		packages = with pkgs; [
-			_7zz
 			discord-canary
 			docker
-			file
 			fastfetch
 			gimp-with-plugins
+			kdePackages.filelight
+			kdePackages.kcalc
+			kdePackages.kcharselect
 			kdePackages.isoimagewriter
 			mpv
+			onlyoffice-desktopeditors
 			python314
+			spotify
 			tutanota-desktop
+			wofi-emoji
 
 			(callPackage ../custom/whale/naver-whale.nix {})
 		];

@@ -28,7 +28,11 @@
 
 		packages = with pkgs; [
 			ffmpeg
+			gpu-screen-recorder
 			go
+			haruna
+			qbittorrent
+			shotcut
 			steam
 			vlc
 			yt-dlp
