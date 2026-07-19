@@ -110,6 +110,7 @@
 			_7zz
 			discord-canary
 			docker
+			file
 			fastfetch
 			gimp-with-plugins
 			kdePackages.isoimagewriter
