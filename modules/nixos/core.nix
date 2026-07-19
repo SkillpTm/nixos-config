@@ -115,8 +115,6 @@
 			mpv
 			python314
 			tutanota-desktop
-
-			(callPackage ../custom/whale/whale.nix { })
 		];
 	};
 }
