@@ -21,6 +21,8 @@
 				configFile = {
 					"autostart/discord-canary.desktop".source = "${pkgs.discord-canary}/share/applications/discord-canary.desktop";
 					"autostart/tutanota-desktop.desktop".source = "${pkgs.tutanota-desktop}/share/applications/tutanota-desktop.desktop";
+
+					"mimeapps.list".force = true;
 				};
 
 				dataFile = {
@@ -33,6 +35,7 @@
 
 				mimeApps = {
 					enable = true;
+
 					defaultApplications = {
 					"text/html" = "naver-whale.desktop";
 					"x-scheme-handler/http" = "naver-whale.desktop";
