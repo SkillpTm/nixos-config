@@ -21,7 +21,7 @@
 	"explorer.confirmDragAndDrop": false,
 	"search.maxResults": null,
 	"security.workspace.trust.untrustedFiles": "open",
-	"terminal.integrated.fontFamily": "MesloLGS NF",
+	"terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
 	"terminal.integrated.sendKeybindingsToShell": true,
 	"terminal.integrated.shellIntegration.enabled": false,
 	"window.commandCenter": false,
