@@ -10,19 +10,26 @@ let
 
 		widgets = [
 			{
-				kickoff.icon = "nix-snowflake-symbolic";
+				kickoff.icon = "${../../../assets/logos/nixos-white.png}";
 			}
 
 			"org.kde.plasma.pager"
 
 			{
-				iconTasks.launchers = [
-					"applications:kitty.desktop"
-					"applications:org.kde.dolphin.desktop"
-					"applications:code.desktop"
-					"applications:discord-canary.desktop"
-					"applications:naver-whale.desktop"
-				];
+				iconTasks = {
+					appearance = {
+						showTooltips = true;
+						highlightWindows = true;
+					};
+
+					launchers = [
+						"applications:kitty.desktop"
+						"applications:org.kde.dolphin.desktop"
+						"applications:code.desktop"
+						"applications:discord-canary.desktop"
+						"applications:naver-whale.desktop"
+					];
+				};
 			}
 
 			"org.kde.plasma.panelspacer"
@@ -40,6 +47,7 @@ let
 						
 						hidden = [
 							"org.kde.plasma.battery"
+							"org.kde.plasma.brightness"
 							"org.kde.plasma.devicenotifier"
 							"org.kde.plasma.displayconfiguration"
 							"org.kde.plasma.nightcolorcontrol"
@@ -51,7 +59,7 @@ let
 			}
 
 			{
-				digitalClock.date.format.custom = "ddd, dd.MM.yyyy"; 
+				digitalClock.date.format.custom = "ddd dd.MM.yyyy";
 			}
 
 			"org.kde.plasma.showdesktop"
