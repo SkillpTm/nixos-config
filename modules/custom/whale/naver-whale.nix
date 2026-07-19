@@ -37,8 +37,8 @@ pkgs.buildFHSEnv {
 	targetPkgs = pkgs: with pkgs; [
 		whale-deb
 
-	# nix alien dependencies
-	alsa-lib-with-plugins.out
+		# nix alien dependencies
+		alsa-lib-with-plugins.out
 		at-spi2-atk.out
 		cairo.out
 		cups.lib
