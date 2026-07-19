@@ -11,8 +11,8 @@ set NEW_GEN (nixos-rebuild list-generations | awk '$NF=="True" {print $1}')
 
 if test $NEW_GEN -eq $OLD_GEN
 	git reset > /dev/null
-    echo -e "$PURPLE""No functional changes.""$RESET"
-    exit 0
+	echo -e "$PURPLE""No functional changes.""$RESET"
+	exit 0
 end
 
 set HASH (basename (readlink /run/current-system) | cut -d- -f1)
