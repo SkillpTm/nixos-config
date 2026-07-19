@@ -108,6 +108,7 @@
 
 		packages = with pkgs; [
 			discord-canary
+			docker
 			fastfetch
 			gimp-with-plugins
 			kdePackages.isoimagewriter
