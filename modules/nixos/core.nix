@@ -107,6 +107,7 @@
 		];
 
 		packages = with pkgs; [
+			_7zz
 			discord-canary
 			docker
 			fastfetch
