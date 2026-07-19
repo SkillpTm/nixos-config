@@ -15,6 +15,7 @@ if test $NEW_GEN -eq $OLD_GEN
     exit 0
 end
 
+git add . # Mayor version change may update flake.lock somewhere during building, so we need to re-add changes.
 set HASH (basename (readlink /run/current-system) | cut -d- -f1)
 git commit -m "Boot: Generation $NEW_GEN ($HASH)"
 
