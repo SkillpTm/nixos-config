@@ -31,6 +31,9 @@
 			(pkgs.writers.writeFishBin "nswitch"
 				(builtins.readFile ../../commands/nswitch.fish)
 			)
+			(pkgs.writers.writeFishBin "nupdate-whale"
+				(builtins.readFile ../../commands/nupdate-whale.fish)
+			)
 			(pkgs.writers.writeFishBin "nupdate"
 				(builtins.readFile ../../commands/nupdate.fish)
 			)

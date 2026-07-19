@@ -1,13 +1,16 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  whale-deb = pkgs.stdenv.mkDerivation {
+  hash = builtins.replaceStrings ["\n" "\r"] ["" ""] (builtins.readFile ./naver-whale-hash.txt);
+
+  whale-deb = pkgs.stdenv.mkDerivation rec {
     pname = "naver-whale-unwrapped";
     version = "latest";
 
     src = pkgs.fetchurl {
+	  name = "naver-whale-${builtins.substring 0 8 hash}.deb";
       url = "https://installer-whale.pstatic.net/downloads/installers/naver-whale-stable_amd64.deb";
-      sha256 = "0zmlw1v19db4clhdm176jbyn5mgw2w75pb8827d233vygp2fpmvd"; 
+      sha256 = hash; 
     };
 
     nativeBuildInputs = [ pkgs.dpkg ];
