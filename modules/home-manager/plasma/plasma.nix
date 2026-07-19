@@ -1,5 +1,63 @@
 { pkgs, inputs, ... }:
 
+let
+	sharedPanel = screen: {
+		inherit screen;
+
+		location = "bottom";
+		floating = false;
+		height = 44;
+
+		widgets = [
+			{
+				kickoff.icon = "nix-snowflake-symbolic";
+			}
+
+			"org.kde.plasma.pager"
+
+			{
+				iconTasks.launchers = [
+					"applications:kitty.desktop"
+					"applications:org.kde.dolphin.desktop"
+					"applications:code.desktop"
+					"applications:discord-canary.desktop"
+					"applications:naver-whale.desktop"
+				];
+			}
+
+			"org.kde.plasma.panelspacer"
+
+			{
+				systemTray = {
+					items = {
+						shown = [
+							"tutanota-desktop"
+							"discord-canary"
+							"org.kde.plasma.clipboard"
+							"org.kde.plasma.volume"
+							"org.kde.plasma.networkmanagement"
+						];
+						
+						hidden = [
+							"org.kde.plasma.battery"
+							"org.kde.plasma.devicenotifier"
+							"org.kde.plasma.displayconfiguration"
+							"org.kde.plasma.nightcolorcontrol"
+							"org.kde.plasma.notifications"
+							"org.kde.plasma.weather"
+						];
+					};
+				};
+			}
+
+			{
+				digitalClock.date.format.custom = "ddd, dd.MM.yyyy"; 
+			}
+
+			"org.kde.plasma.showdesktop"
+		];
+	};
+in
 {
 	imports = [
 		inputs.plasma-manager.homeModules.plasma-manager
@@ -46,59 +104,9 @@
 		};
 
 		panels = [
-			{
-				location = "bottom";
-				height = 44;
-
-				widgets = [
-					{
-						kickoff = {
-							icon = "nix-snowflake";
-						};
-					}
-
-					"org.kde.plasma.pager"
-
-					{
-						iconTasks = {
-							launchers = [
-								"applications:kitty.desktop"
-								"applications:org.kde.dolphin.desktop"
-								"applications:code.desktop"
-								"applications:discord-canary.desktop"
-								"applications:naver-whale.desktop"
-							];
-						};
-					}
-
-					"org.kde.plasma.panelspacer"
-
-					{
-						systemTray = {
-							items = {
-								shown = [
-									"tutanota-desktop"
-									"discord-canary"
-									"org.kde.plasma.clipboard"
-									"org.kde.plasma.volume"
-									"org.kde.plasma.networkmanagement"
-								];
-								
-								hidden = [
-									"org.kde.plasma.battery"
-									"org.kde.plasma.devicenotifier"
-									"org.kde.plasma.displayconfiguration"
-									"org.kde.plasma.notifications"
-									"org.kde.plasma.weather"
-								];
-							};
-						};
-					}
-
-					"org.kde.plasma.digitalclock"
-					"org.kde.plasma.showdesktop"
-				];
-			}
+			(sharedPanel 0)
+			(sharedPanel 1)
+			(sharedPanel 2)
 		];
 
 		powerdevil.AC = {
