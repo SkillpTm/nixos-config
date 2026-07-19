@@ -25,17 +25,18 @@
 			kitty
 			nvd
 
-			(pkgs.writers.writeFishBin "nboot"
-				(builtins.readFile ../../commands/nboot.fish)
+			(pkgs.writers.writeFishBin "nx-boot"
+				(builtins.readFile ../../commands/nx-boot.fish)
 			)
-			(pkgs.writers.writeFishBin "nswitch"
-				(builtins.readFile ../../commands/nswitch.fish)
+			(pkgs.writers.writeFishBin "nx-switch"
+				(builtins.readFile ../../commands/nx-switch.fish)
 			)
-			(pkgs.writers.writeFishBin "nupdate-whale"
-				(builtins.readFile ../../commands/nupdate-whale.fish)
+			(pkgs.writers.writeFishBin "nx-update"
+				(builtins.readFile ../../commands/nx-update.fish)
 			)
-			(pkgs.writers.writeFishBin "nupdate"
-				(builtins.readFile ../../commands/nupdate.fish)
+
+			(pkgs.writers.writeFishBin "nx-whale-update"
+				(builtins.readFile ../../commands/nx-whale-update.fish)
 			)
 		];
 	};

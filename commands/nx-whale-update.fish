@@ -3,7 +3,7 @@ set RESET "\033[0m"
 
 set HASH_FILE "$HOME/nix-config/modules/custom/whale/naver-whale-hash.txt"
 
-set NEW_HASH (nix-prefetch-url --force "https://installer-whale.pstatic.net/downloads/installers/naver-whale-stable_amd64.deb" 2>/dev/null)
+set NEW_HASH (nix-prefetch-url https://installer-whale.pstatic.net/downloads/installers/naver-whale-stable_amd64.deb | tail -n 1)
 set OLD_HASH (cat "$HASH_FILE")
 
 if test "$NEW_HASH" = "$OLD_HASH"
