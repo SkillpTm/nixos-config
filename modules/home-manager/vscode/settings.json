@@ -21,17 +21,17 @@
 	"explorer.confirmDragAndDrop": false,
 	"search.maxResults": null,
 	"security.workspace.trust.untrustedFiles": "open",
-	"terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
+	"terminal.integrated.fontFamily": "MesloLGS NF",
 	"terminal.integrated.sendKeybindingsToShell": true,
 	"terminal.integrated.shellIntegration.enabled": false,
 	"window.commandCenter": false,
 	"workbench.activityBar.location": "top",
-	"workbench.colorTheme": "Default Dark+",
+	"workbench.colorTheme": "Dark+",
 	"workbench.iconTheme": "material-icon-theme",
-	"workbench.preferredDarkColorTheme": "Default Dark+",
-	"workbench.preferredHighContrastColorTheme": "Default Dark+",
-	"workbench.preferredHighContrastLightColorTheme": "Default Dark+",
-	"workbench.preferredLightColorTheme": "Default Dark+",
+	"workbench.preferredDarkColorTheme": "Dark+",
+	"workbench.preferredHighContrastColorTheme": "Dark+",
+	"workbench.preferredHighContrastLightColorTheme": "Dark+",
+	"workbench.preferredLightColorTheme": "Dark+",
 	"workbench.secondarySideBar.defaultVisibility": "hidden",
 	"workbench.startupEditor": "none",
 	"workbench.editorAssociations": {
@@ -47,6 +47,7 @@
 		"editor.insertSpaces": false,
 		"editor.tabSize": 4
 	},
+	"python.defaultInterpreterPath": "/home/skillp/.pyenv/versions/3.14.0/bin/python",
 	"python.terminal.activateEnvironment": false,
 	"[python]": {
 		"editor.insertSpaces": true,
@@ -116,7 +117,26 @@
 	"github.copilot.editor.enableCodeActions": false,
 	"github.copilot.nextEditSuggestions.fixes": false,
 	"github.copilot.renameSuggestions.triggerAutomatically": false,
+	"github.copilot.advanced": {},
 	"github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
-	"geminicodeassist.project": "tab-complete",
-	"geminicodeassist.displayInlineContextHint": false
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"text": "CRITICAL: You must output EXACTLY ONE commit message in total, regardless of how many files are staged or changed."
+		},
+		{
+			"text": "Use the conventional commit format: <type>[optional scope]: <description>\n\n[optional body]"
+		},
+		{
+			"text": "Valid types are: build, chore, docs, feat, fix, perf, refactor, style, test."
+		},
+		{
+			"text": "If changes span multiple scopes, OMIT the scope entirely or use a broad term like '(core)'. Do not attempt to combine multiple scopes in the brackets."
+		},
+		{
+			"text": "If changes span multiple types, choose the single most dominant type for the subject line. Summarize the rest of the changes briefly in the body if absolutely necessary."
+		},
+		{
+			"text": "Keep the subject line description below 10 words, if possible. Only include a body if absolutly required, line breaks are forbidden, outside of description-body seperation."
+		}
+	]
 }

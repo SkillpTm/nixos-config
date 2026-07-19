@@ -12,6 +12,7 @@ in
 			userSettings = builtins.fromJSON (builtins.readFile ./settings.json);
 
 			extensions = with pkgs.vscode-extensions; [
+				christian-kohler.path-intellisense
 				dbaeumer.vscode-eslint
 				docker.docker
 				eamodio.gitlens
@@ -19,7 +20,6 @@ in
 				formulahendry.auto-rename-tag
 				github.copilot-chat
 				golang.go
-				marketplace.google.geminicodeassist
 				jnoortheen.nix-ide
 				mechatroner.rainbow-csv
 				marketplace.mrmlnc.vscode-scss
@@ -30,6 +30,7 @@ in
 				ms-python.pylint
 				ms-python.python
 				ms-python.vscode-pylance
+				ms-python.vscode-python-envs
 				pkief.material-icon-theme
 				ritwickdey.liveserver
 				zainchen.json
