@@ -25,6 +25,9 @@
 			kitty
 			nvd
 
+			(pkgs.writers.writeFishBin "nboot"
+				(builtins.readFile ../../commands/nboot.fish)
+			)
 			(pkgs.writers.writeFishBin "nswitch"
 				(builtins.readFile ../../commands/nswitch.fish)
 			)

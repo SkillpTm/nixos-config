@@ -7,7 +7,7 @@ git --no-pager diff --staged --color=always
 
 set OLD_GEN (nixos-rebuild list-generations | awk '$NF=="True" {print $1}')
 sudo nixos-rebuild switch --flake .#$hostname --show-trace --no-reexec
-set NEW_GEN (nixos-rebuild list-generations | awk '$NF=="True" {print $1}' )
+set NEW_GEN (nixos-rebuild list-generations | awk '$NF=="True" {print $1}')
 
 if test $NEW_GEN -eq $OLD_GEN
 	git reset > /dev/null
