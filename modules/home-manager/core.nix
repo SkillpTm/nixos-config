@@ -12,6 +12,7 @@
 			home.packages = [ pkgs.nerd-fonts.meslo-lg ];
 
 			imports = [
+				./dolphin/dolphin.nix
 				./fish/fish.nix
 				./plasma/plasma.nix
 				./vscode/vscode.nix
