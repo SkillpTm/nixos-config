@@ -27,6 +27,7 @@ let
 						"applications:org.kde.dolphin.desktop"
 						"applications:code.desktop"
 						"applications:discord-canary.desktop"
+						"applications:spotify.desktop"
 						"applications:naver-whale.desktop"
 					];
 				};
@@ -35,26 +36,24 @@ let
 			"org.kde.plasma.panelspacer"
 
 			{
-				systemTray = {
-					items = {
-						shown = [
-							"tutanota-desktop"
-							"discord-canary"
-							"org.kde.plasma.clipboard"
-							"org.kde.plasma.volume"
-							"org.kde.plasma.networkmanagement"
-						];
-						
-						hidden = [
-							"org.kde.plasma.battery"
-							"org.kde.plasma.brightness"
-							"org.kde.plasma.devicenotifier"
-							"org.kde.plasma.displayconfiguration"
-							"org.kde.plasma.nightcolorcontrol"
-							"org.kde.plasma.notifications"
-							"org.kde.plasma.weather"
-						];
-					};
+				systemTray.items = {
+					shown = [
+						"tutanota-desktop"
+						"discord-canary"
+						"org.kde.plasma.clipboard"
+						"org.kde.plasma.volume"
+						"org.kde.plasma.networkmanagement"
+					];
+					
+					hidden = [
+						"org.kde.plasma.battery"
+						"org.kde.plasma.brightness"
+						"org.kde.plasma.devicenotifier"
+						"org.kde.plasma.displayconfiguration"
+						"org.kde.plasma.nightcolorcontrol"
+						"org.kde.plasma.notifications"
+						"org.kde.plasma.weather"
+					];
 				};
 			}
 

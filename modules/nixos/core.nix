@@ -1,6 +1,13 @@
 { config, pkgs, me, ... }:
 
 {
+	console.keyMap = "de";
+	networking.networkmanager.enable = true;
+	nixpkgs.config.allowUnfree = true;
+	security.rtkit.enable = true;
+	system.stateVersion = "25.11";
+	time.timeZone = "Europe/Berlin";
+
 	boot = {
 		kernelPackages = pkgs.linuxPackages_latest;
 
@@ -9,8 +16,6 @@
 			systemd-boot.enable = true;
 		};
 	};
-
-	console.keyMap = "de";
 
 	environment = {
 		plasma6.excludePackages = with pkgs.kdePackages; [
@@ -60,21 +65,15 @@
 		};
 	};
 
-	networking.networkmanager.enable = true;
-
 	nix.settings.experimental-features = [
 		"nix-command"
 		"flakes"
 	];
 
-	nixpkgs.config.allowUnfree = true;
-
 	programs = {
 		fish.enable = true;
 		partition-manager.enable = true;
 	};
-
-	security.rtkit.enable = true;
 
 	services = {
 		desktopManager.plasma6.enable = true;
@@ -99,10 +98,6 @@
 			};
 		};
 	};
-
-	system.stateVersion = "25.11";
-
-	time.timeZone = "Europe/Berlin";
 
 	users.users.${me} = {
 		isNormalUser = true;

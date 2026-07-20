@@ -17,6 +17,7 @@ in
 				docker.docker
 				eamodio.gitlens
 				ecmel.vscode-html-css
+				editorconfig.editorconfig
 				formulahendry.auto-rename-tag
 				github.copilot-chat
 				golang.go

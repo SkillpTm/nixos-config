@@ -20,6 +20,7 @@
 			xdg = {
 				configFile = {
 					"autostart/discord-canary.desktop".source = "${pkgs.discord-canary}/share/applications/discord-canary.desktop";
+					"autostart/spotify.desktop".source = "${pkgs.spotify}/share/applications/spotify.desktop";
 					"autostart/tutanota-desktop.desktop".source = "${pkgs.tutanota-desktop}/share/applications/tutanota-desktop.desktop";
 
 					"mimeapps.list".force = true;

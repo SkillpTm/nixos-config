@@ -9,11 +9,6 @@
 
 	networking.hostName = "desktop";
 
-	nix.settings.experimental-features = [
-		"nix-command"
-		"flakes"
-	];
-
 	programs = {
 		firefox.enable = true;
 	};
