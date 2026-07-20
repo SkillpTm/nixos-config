@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 
 let
 	sharedPanel = screen: {
@@ -44,7 +44,7 @@ let
 						"org.kde.plasma.volume"
 						"org.kde.plasma.networkmanagement"
 					];
-					
+
 					hidden = [
 						"org.kde.plasma.battery"
 						"org.kde.plasma.brightness"

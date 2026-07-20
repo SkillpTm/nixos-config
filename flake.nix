@@ -15,27 +15,15 @@
 		};
 	};
 
-	outputs = {
-		nixpkgs, home-manager, ...
-	} @inputs: 
-	let
-		nixosVersion = "26.05";
-		me = "skillp";
-	in
-	{
+	outputs = { nixpkgs, home-manager, ... } @inputs: {
 		nixosConfigurations = {
 			desktop = nixpkgs.lib.nixosSystem {
 				specialArgs = {
-					inherit
-						inputs
-						nixosVersion
-						me;
+					inherit inputs;
+						me = "skillp";
+						originalNixosVersion = "25.11";
 				};
-				modules = [
-					./hosts/desktop/configuration.nix
-					home-manager.nixosModules.home-manager
-					./hosts/desktop/home.nix
-				];
+				modules = [ ./hosts/desktop/configuration.nix ];
 			};
 		};
 	};

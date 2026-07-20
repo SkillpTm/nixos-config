@@ -50,6 +50,17 @@
    </metadata>
   </info>
  </bookmark>
+ <bookmark href="file:///home/skillp/Downloads">
+  <title>Downloads</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name="folder-download"/>
+   </metadata>
+   <metadata owner="http://www.kde.org">
+    <ID>1784550443/0</ID>
+   </metadata>
+  </info>
+ </bookmark>
  <bookmark href="file:///home/skillp/Music">
   <title>Music</title>
   <info>
@@ -163,7 +174,7 @@
    <metadata owner="http://www.kde.org">
     <UDI>/org/freedesktop/UDisks2/block_devices/sda1</UDI>
     <isSystemItem>true</isSystemItem>
-    <uuid>d2bbc553-0afb-4a7f-9216-4c36d52e6a87</uuid>
+    <uuid>44573fa4-1d1a-4af2-875c-5ae368b8c2d0</uuid>
    </metadata>
   </info>
  </separator>
@@ -172,7 +183,7 @@
    <metadata owner="http://www.kde.org">
     <UDI>/org/freedesktop/UDisks2/block_devices/sdb1</UDI>
     <isSystemItem>true</isSystemItem>
-    <uuid>44573fa4-1d1a-4af2-875c-5ae368b8c2d0</uuid>
+    <uuid>d2bbc553-0afb-4a7f-9216-4c36d52e6a87</uuid>
    </metadata>
   </info>
  </separator>

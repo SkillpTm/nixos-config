@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 
 {
 	home.activation.setupDolphinPlaces = lib.hm.dag.entryAfter ["writeBoundary"] ''

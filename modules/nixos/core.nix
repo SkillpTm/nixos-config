@@ -1,11 +1,11 @@
-{ config, pkgs, me, ... }:
+{ config, me, pkgs, originalNixosVersion, ... }:
 
 {
 	console.keyMap = "de";
 	networking.networkmanager.enable = true;
 	nixpkgs.config.allowUnfree = true;
 	security.rtkit.enable = true;
-	system.stateVersion = "25.11";
+	system.stateVersion = originalNixosVersion;
 	time.timeZone = "Europe/Berlin";
 
 	boot = {
@@ -23,6 +23,9 @@
 			kate
 			khelpcenter
 			kinfocenter
+			konsole
+			okular
+			qrca
 		];
 
 		systemPackages = with pkgs; [

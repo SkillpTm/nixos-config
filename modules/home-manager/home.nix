@@ -1,14 +1,18 @@
-{ pkgs, inputs, nixosVersion, me, ... }:
+{ inputs, me, originalNixosVersion, pkgs, ... }:
 
 {
+	imports = [
+		inputs.home-manager.nixosModules.home-manager
+	];
+
 	home-manager = {
 		backupFileExtension = "backup";
-		extraSpecialArgs = { inherit inputs; };
+		extraSpecialArgs = { inherit inputs originalNixosVersion me; };
 		useGlobalPkgs = true;
 		useUserPackages = true;
 
 		users.${me} = { ... }: {
-			home.stateVersion = nixosVersion;
+			home.stateVersion = originalNixosVersion;
 			home.packages = [ pkgs.nerd-fonts.meslo-lg ];
 
 			imports = [
@@ -19,20 +23,10 @@
 			];
 
 			xdg = {
-				configFile = {
-					"autostart/discord-canary.desktop".source = "${pkgs.discord-canary}/share/applications/discord-canary.desktop";
-					"autostart/spotify.desktop".source = "${pkgs.spotify}/share/applications/spotify.desktop";
-					"autostart/tutanota-desktop.desktop".source = "${pkgs.tutanota-desktop}/share/applications/tutanota-desktop.desktop";
-
-					"mimeapps.list".force = true;
-				};
+				configFile."mimeapps.list".force = true;
 
 				dataFile = {
 					"icons/hicolor/scalable/apps/nixos-logo-white.png".source = ../../assets/logos/nixos-white.png;
-
-					"wallpapers/Cheshire.jpg".source = ../../assets/wallpapers/Cheshire.jpg;
-					"wallpapers/Ryujin.jpeg".source = ../../assets/wallpapers/Ryujin.jpeg;
-					"wallpapers/Stage.jpeg".source = ../../assets/wallpapers/Stage.jpeg;
 				};
 
 				mimeApps = {

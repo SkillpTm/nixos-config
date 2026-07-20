@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs, ...}:
 
 let
 	hash = builtins.replaceStrings ["\n" "\r"] ["" ""] (builtins.readFile ./naver-whale-hash.txt);
@@ -10,7 +10,7 @@ let
 		src = pkgs.fetchurl {
 		name = "naver-whale-${builtins.substring 0 8 hash}.deb";
 			url = "https://installer-whale.pstatic.net/downloads/installers/naver-whale-stable_amd64.deb";
-			sha256 = hash; 
+			sha256 = hash;
 		};
 
 		nativeBuildInputs = [ pkgs.dpkg ];
@@ -33,7 +33,7 @@ let
 in
 pkgs.buildFHSEnv {
 	name = "naver-whale";
-	
+
 	targetPkgs = pkgs: with pkgs; [
 		whale-deb
 
