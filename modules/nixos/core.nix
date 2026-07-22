@@ -2,7 +2,6 @@
 
 {
 	console.keyMap = "de";
-	networking.networkmanager.enable = true;
 	nixpkgs.config.allowUnfree = true;
 	security.rtkit.enable = true;
 	system.stateVersion = originalNixosVersion;
@@ -67,6 +66,42 @@
 			LC_PAPER = "de_DE.UTF-8";
 			LC_TELEPHONE = "de_DE.UTF-8";
 			LC_TIME = "en_GB.UTF-8";
+		};
+	};
+
+	networking = {
+		networkmanager.enable = true;
+
+		wg-quick.interfaces = {
+			surfshark-ch = {
+				autostart = false;
+				configFile = "/root/wireguard/surfshark-ch.conf";
+			};
+
+			surfshark-de = {
+				autostart = true;
+				configFile = "/root/wireguard/surfshark-de.conf";
+			};
+
+			surfshark-jp = {
+				autostart = false;
+				configFile = "/root/wireguard/surfshark-jp.conf";
+			};
+
+			surfshark-kr = {
+				autostart = false;
+				configFile = "/root/wireguard/surfshark-kr.conf";
+			};
+
+			surfshark-uk = {
+				autostart = false;
+				configFile = "/root/wireguard/surfshark-uk.conf";
+			};
+
+			surfshark-us = {
+				autostart = false;
+				configFile = "/root/wireguard/surfshark-us.conf";
+			};
 		};
 	};
 
