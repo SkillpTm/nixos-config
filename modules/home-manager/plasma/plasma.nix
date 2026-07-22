@@ -90,19 +90,19 @@ in
 			# /home/skillp/.config/dolphinrc
 			dolphinrc = {
 				"MainWindow" = {
+					MenuBar = "Enabled";
+				};
+
+				"General" = {
+					AlwaysShowTabBar = true;
 					BrowseThroughArchives = true;
 					CloseSplitViewChoice = "InactiveView";
 					HomeUrl = "file://${config.home.homeDirectory}/Downloads";
-					MenuBar = "Enabled";
 					OpenNewTabAfterLastTab = true;
 					RememberOpenedTabs = false;
 					ShowFullPath = true;
 					ShowFullPathInTitlebar = true;
 					TabStyle = "FixedSize";
-				};
-
-				"General" = {
-					AlwaysShowTabBar = true;
 				};
 			};
 
