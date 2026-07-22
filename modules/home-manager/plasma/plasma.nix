@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 
 let
 	sharedPanel = screen: {
@@ -92,8 +92,10 @@ in
 				"MainWindow" = {
 					BrowseThroughArchives = true;
 					CloseSplitViewChoice = "InactiveView";
+					HomeUrl = "file://${config.home.homeDirectory}/Downloads";
 					MenuBar = "Enabled";
 					OpenNewTabAfterLastTab = true;
+					RememberOpenedTabs = false;
 					ShowFullPath = true;
 					ShowFullPathInTitlebar = true;
 					TabStyle = "FixedSize";
