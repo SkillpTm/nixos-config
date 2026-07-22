@@ -83,6 +83,16 @@ in
 			kwinrc.Wayland.EnablePrimarySelection = false;
 			PlasmaUserFeedback.Global.FeedbackLevel = 64;
 
+			dolphinrc = {
+				"MainWindow" = {
+					MenuBar = "Enabled";
+				};
+
+				"General" = {
+					ShowTabBar = true;
+				};
+			};
+
 			kdeglobals = {
 				KDE.AnimationDurationFactor = 0.0;
 
