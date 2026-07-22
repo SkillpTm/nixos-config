@@ -74,7 +74,9 @@ end
 sudo systemctl start wg-quick-surfshark-$target_code.service
 
 if systemctl is-active --quiet wg-quick-surfshark-$target_code.service
-    echo -e "$GREEN""Connected: $active_code --> $target_code""$RESET"
+	set current_ip (curl -s ifconfig.me)
+    echo -e "$GREEN""Connected:  $active_code --> $target_code""$RESET"
+	echo -e "IP:           $current_ip"
 else
     echo -e "$RED""Failed to connect ($target_code)""$RESET"
 end
