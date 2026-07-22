@@ -78,6 +78,7 @@ in
 	programs.plasma = {
 		enable = true;
 		input.keyboard.options = [ "caps:none" "lv3:caps_switch" ];
+		workspace.theme = "breeze-dark";
 
 		configFile = {
 			kactivitymanagerdrc.Plugins."org.kde.ActivityManager.ResourceScoringEnabled" = false;
@@ -145,15 +146,6 @@ in
 			dimDisplay.enable = false;
 			powerButtonAction = "shutDown";
 			turnOffDisplay.idleTimeout = "never";
-		};
-
-		workspace = {
-			theme = "breeze-dark";
-
-			cursor = {
-				theme = "We10XOS-cursors";
-				size = 24;
-			};
 		};
 	};
 }
