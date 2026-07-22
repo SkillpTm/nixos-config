@@ -47,6 +47,12 @@ in
 				./vscode/vscode.nix
 			];
 
+			programs.btop = {
+				enable = true;
+				package = pkgs.btop-rocm;
+				settings.shown_boxes = "cpu mem net proc gpu0";
+			};
+
 			xdg = {
 				configFile."mimeapps.list".force = true;
 
