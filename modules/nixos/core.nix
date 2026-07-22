@@ -111,6 +111,11 @@
 	programs = {
 		fish.enable = true;
 		partition-manager.enable = true;
+
+		localsend = {
+			enable = true;
+			openFirewall = true;
+		};
 	};
 
 	services = {
@@ -155,7 +160,6 @@
 			kdePackages.kcalc
 			kdePackages.kcharselect
 			kdePackages.isoimagewriter
-			localsend
 			mpv
 			onlyoffice-desktopeditors
 			python314

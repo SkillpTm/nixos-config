@@ -41,6 +41,7 @@ let
 						"tutanota-desktop"
 						"discord-canary"
 						"spotify"
+						"localsend"
 						"org.kde.plasma.clipboard"
 						"org.kde.plasma.volume"
 						"org.kde.plasma.networkmanagement"
