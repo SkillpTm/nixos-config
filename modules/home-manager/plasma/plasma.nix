@@ -83,13 +83,20 @@ in
 			kwinrc.Wayland.EnablePrimarySelection = false;
 			PlasmaUserFeedback.Global.FeedbackLevel = 64;
 
+			# /home/skillp/.config/dolphinrc
 			dolphinrc = {
 				"MainWindow" = {
+					BrowseThroughArchives = true;
+					CloseSplitViewChoice = "InactiveView";
 					MenuBar = "Enabled";
+					OpenNewTabAfterLastTab = true;
+					ShowFullPath = true;
+					ShowFullPathInTitlebar = true;
+					TabStyle = "FixedSize";
 				};
 
 				"General" = {
-					ShowTabBar = true;
+					AlwaysShowTabBar = true;
 				};
 			};
 
