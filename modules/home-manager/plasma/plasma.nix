@@ -72,6 +72,9 @@ in
 		inputs.plasma-manager.homeModules.plasma-manager
 	];
 
+	home.file.".face.icon".source = ../../../assets/logos/nixos.png;
+    home.file.".face".source = ../../../assets/logos/nixos.png;
+
 	programs.plasma = {
 		enable = true;
 		input.keyboard.options = [ "caps:none" "lv3:caps_switch" ];
