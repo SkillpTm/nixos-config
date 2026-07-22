@@ -20,8 +20,8 @@
 			desktop = nixpkgs.lib.nixosSystem {
 				specialArgs = {
 					inherit inputs;
-						me = "skillp";
-						originalNixosVersion = "25.11";
+					me = "skillp";
+					originalNixosVersion = "25.11";
 				};
 				modules = [ ./hosts/desktop/configuration.nix ];
 			};

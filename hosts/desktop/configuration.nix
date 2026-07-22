@@ -34,6 +34,7 @@ in
 		description = "Skillp";
 
 		packages = with pkgs; [
+			brave
 			ffmpeg
 			gpu-screen-recorder
 			go

@@ -1,5 +1,22 @@
-{ inputs, me, originalNixosVersion, pkgs, ... }:
+{ inputs, lib, me, originalNixosVersion, pkgs, ... }:
 
+let
+	repos = [
+		{ url = "https://github.com/SkillpTm/Bolt"; dest = "$HOME/Code/github.com/SkillpTm/Bolt"; }
+		{ url = "https://github.com/SkillpTm/NixOS-Config"; dest = "$HOME/Code/github.com/SkillpTm/NixOS-Config"; }
+		{ url = "https://github.com/SkillpTm/SkillpTm"; dest = "$HOME/Code/github.com/SkillpTm/SkillpTm"; }
+		{ url = "https://github.com/SkillpTm/Somi-Bot"; dest = "$HOME/Code/github.com/SkillpTm/Somi-Bot"; }
+	];
+
+	mkCloneScript = repo: ''
+		if [ ! -d "${repo.dest}/.git" ]; then
+			${pkgs.git}/bin/git clone ${repo.url} ${repo.dest}
+		fi
+	'';
+
+	repoCloneCommands = lib.concatMapStrings mkCloneScript repos;
+
+in
 {
 	imports = [
 		inputs.home-manager.nixosModules.home-manager
@@ -11,9 +28,17 @@
 		useGlobalPkgs = true;
 		useUserPackages = true;
 
-		users.${me} = { ... }: {
-			home.stateVersion = originalNixosVersion;
-			home.packages = [ pkgs.nerd-fonts.meslo-lg ];
+		users.${me} = { lib, ... }: {
+			home = {
+				packages = [ pkgs.nerd-fonts.meslo-lg ];
+				stateVersion = originalNixosVersion;
+
+				activation.setupMyFoldersAndRepos = lib.hm.dag.entryAfter ["writeBoundary"] ''
+					mkdir -p $HOME/Code/github.com/SkillpTm
+
+					${repoCloneCommands}
+				'';
+			};
 
 			imports = [
 				./dolphin/dolphin.nix

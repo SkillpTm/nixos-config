@@ -40,6 +40,7 @@ let
 					shown = [
 						"tutanota-desktop"
 						"discord-canary"
+						"spotify"
 						"org.kde.plasma.clipboard"
 						"org.kde.plasma.volume"
 						"org.kde.plasma.networkmanagement"
