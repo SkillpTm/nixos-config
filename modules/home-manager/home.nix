@@ -10,7 +10,7 @@ let
 
 	mkCloneScript = repo: ''
 		if [ ! -d "${repo.dest}/.git" ]; then
-			${pkgs.git}/bin/git clone ${repo.url} ${repo.dest}
+			GIT_TERMINAL_PROMPT=0 ${pkgs.git}/bin/git clone ${repo.url} ${repo.dest}
 		fi
 	'';
 
