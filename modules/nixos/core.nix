@@ -155,6 +155,7 @@
 			kdePackages.kcalc
 			kdePackages.kcharselect
 			kdePackages.isoimagewriter
+			localsend
 			mpv
 			onlyoffice-desktopeditors
 			python314
