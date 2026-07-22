@@ -10,7 +10,7 @@ let
 
 	mkCloneScript = repo: ''
 		if [ ! -d "${repo.dest}/.git" ]; then
-			GIT_TERMINAL_PROMPT=0 ${pkgs.git}/bin/git clone ${repo.url} ${repo.dest}
+			env GIT_TERMINAL_PROMPT=0 GIT_ASKPASS= ${pkgs.git}/bin/git -c credential.helper= clone --quiet ${repo.url} ${repo.dest} || true
 		fi
 	'';
 
