@@ -6,7 +6,7 @@ let
 		version = "master";
 
 		src = pkgs.fetchFromGitHub {
-			hash = pkgs.lib.fakeHash;
+			hash = "sha256-dy6gA2jZa0pxwXDnc3ckxWd01k2UG0EWG8hoeU5T28Y=";
 			owner = "yeyushengfan258";
 			repo = "We10XOS-cursors";
 			rev = "master";
