@@ -2,21 +2,11 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
-argparse 's/status' 'o/off' 'r/reconnect' -- $argv
+argparse -x s,o,r 's/status' 'o/off' 'r/reconnect' -- $argv
 or exit 1
 
-set allowed_codes ch de jp kr uk us # list of allowed server codes
-set target_code "de" # default server (no input)
-
-set -l flags_count 0
-if set -q _flag_s; set flags_count (math $flags_count + 1); end
-if set -q _flag_o; set flags_count (math $flags_count + 1); end
-if set -q _flag_r; set flags_count (math $flags_count + 1); end
-
-if test $flags_count -gt 1
-	echo -e "$RED""Flags -s, -o, and -r cannot be used together""$RESET"
-	exit 1
-end
+set allowed_codes ch de jp kr uk us # list of allowed country codes
+set target_code "de" # default country (no input)
 
 if test $flags_count -eq 1; and test (count $argv) -gt 0
 	echo -e "$RED""Flags cannot be used alongside a country code""$RESET"
@@ -66,7 +56,7 @@ if test (count $argv) -gt 0;
 end
 
 if not contains -- $target_code $allowed_codes
-	echo -e "$RED""'$target_code' is not a valid server code""$RESET"
+	echo -e "$RED""'$target_code' is not a valid country code""$RESET"
 	echo "Allowed codes are: $allowed_codes"
 	exit 1
 end

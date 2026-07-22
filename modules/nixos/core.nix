@@ -35,17 +35,11 @@
 			kitty
 			nvd
 
-			(pkgs.writers.writeFishBin "nx-boot"
-				(builtins.readFile ../../commands/nx-boot.fish)
-			)
 			(pkgs.writers.writeFishBin "nx-clean"
 				(builtins.readFile ../../commands/nx-clean.fish)
 			)
 			(pkgs.writers.writeFishBin "nx-switch"
 				(builtins.readFile ../../commands/nx-switch.fish)
-			)
-			(pkgs.writers.writeFishBin "nx-update"
-				(builtins.readFile ../../commands/nx-update.fish)
 			)
 			(pkgs.writers.writeFishBin "nx-wg"
 				(builtins.readFile ../../commands/nx-wg.fish)
