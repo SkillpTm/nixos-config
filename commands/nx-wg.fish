@@ -2,7 +2,7 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
-argparse 's/status' 'o/off' -- $argv
+argparse 's/status' 'o/off' 'r/reconnect' -- $argv
 or exit 1
 
 set allowed_codes ch de jp kr uk us # list of allowed server codes
@@ -11,9 +11,10 @@ set target_code "de" # default server (no input)
 set -l flags_count 0
 if set -q _flag_s; set flags_count (math $flags_count + 1); end
 if set -q _flag_o; set flags_count (math $flags_count + 1); end
+if set -q _flag_r; set flags_count (math $flags_count + 1); end
 
 if test $flags_count -gt 1
-	echo -e "$RED""Flags -s and -o cannot be used together""$RESET"
+	echo -e "$RED""Flags -s, -o, and -r cannot be used together""$RESET"
 	exit 1
 end
 
@@ -33,7 +34,7 @@ if set -q _flag_s
 	if test "$active_code" != "off"
 		echo -e "Status:  ""$GREEN""connected ($active_code)""$RESET"
 	else
-		echo -e "Status:  ""$RED""disconnected ($active_code)""$RESET"
+		echo -e "Status:  ""$RED""disconnected""$RESET"
 	end
 	echo -e "IP:      $(curl -s ifconfig.me)"
 	exit 0
@@ -51,6 +52,15 @@ if set -q _flag_o
 	exit 0
 end
 
+if set -q _flag_r
+	if test "$active_code" = "off"
+		echo -e "$RED""Cannot reconnect, already disconnected""$RESET"
+		echo -e "IP: $(curl -s ifconfig.me)"
+		exit 0
+	end
+	set target_code $active_code
+end
+
 if test (count $argv) -gt 0;
 	set target_code (string lower $argv[1])
 end
@@ -59,12 +69,6 @@ if not contains -- $target_code $allowed_codes
 	echo -e "$RED""'$target_code' is not a valid server code""$RESET"
 	echo "Allowed codes are: $allowed_codes"
 	exit 1
-end
-
-if test "$active_code" = "$target_code"
-	echo -e "$GREEN""Already connected ($target_code)""$RESET"
-	echo -e "IP: $(curl -s ifconfig.me)"
-	exit 0
 end
 
 if test "$active_code" != "off"
