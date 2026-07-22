@@ -56,12 +56,17 @@ in
 
 				git = {
 					enable = true;
-					userEmail = "99091714+SkillpTm@users.noreply.github.com";
-					userName = "SkillpTm";
 
-					extraConfig = {
-						init.defaultBranch = "main";
-						push.autoSetupRemote = true;
+					settings = {
+						extraConfig = {
+							init.defaultBranch = "main";
+							push.autoSetupRemote = true;
+						};
+
+						user = {
+							email = "99091714+SkillpTm@users.noreply.github.com";
+							name = "SkillpTm";
+						};
 					};
 				};
 			};
