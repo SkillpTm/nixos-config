@@ -47,6 +47,9 @@
 			(pkgs.writers.writeFishBin "nx-update"
 				(builtins.readFile ../../commands/nx-update.fish)
 			)
+			(pkgs.writers.writeFishBin "nx-wg"
+				(builtins.readFile ../../commands/nx-wg.fish)
+			)
 			(pkgs.writers.writeFishBin "nx-whale-update"
 				(builtins.readFile ../../commands/nx-whale-update.fish)
 			)
