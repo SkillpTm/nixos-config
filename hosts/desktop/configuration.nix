@@ -4,7 +4,7 @@ let
 	mkAutomount = uuid: fsType: {
 		device = "/dev/disk/by-uuid/${uuid}";
 		fsType = fsType;
-		options = ["nofail"];
+		options = [ "nofail" ];
 	};
 
 in
@@ -39,6 +39,7 @@ in
 			gpu-screen-recorder
 			go
 			haruna
+			modrinth-app
 			qbittorrent
 			shotcut
 			steam

@@ -29,6 +29,11 @@ in
 			gtk.enable = true;
 			x11.enable = true;
 		};
+
+		sessionVariables = {
+			XCURSOR_THEME = "We10XOS-cursors";
+			XCURSOR_SIZE = "24";
+		};
 	};
 
 	programs.plasma.workspace.cursor = {
