@@ -30,24 +30,23 @@ if test "$active_code" = ""
 end
 
 if set -q _flag_s
-	set current_ip (curl -s ifconfig.me)
-
 	if test "$active_code" != "off"
 		echo -e "Status:  ""$GREEN""connected ($active_code)""$RESET"
-		echo -e "IP:      $current_ip"
 	else
 		echo -e "Status:  ""$RED""disconnected ($active_code)""$RESET"
-		echo -e "IP:      $current_ip"
 	end
+	echo -e "IP:      $(curl -s ifconfig.me)"
 	exit 0
 end
 
 if set -q _flag_o
 	if test "$active_code" = "off"
 		echo -e "$RED""Already disconnected""$RESET"
+		echo -e "IP: $(curl -s ifconfig.me)"
 	else
 		sudo systemctl stop $active_service
-		echo -e "$GREEN""Disconnected: $active_code --> off""$RESET"
+		echo -e "$RED""Disconnected:  $active_code --> off""$RESET"
+		echo -e "IP:            $(curl -s ifconfig.me)"
 	end
 	exit 0
 end
@@ -64,6 +63,7 @@ end
 
 if test "$active_code" = "$target_code"
 	echo -e "$GREEN""Already connected ($target_code)""$RESET"
+	echo -e "IP: $(curl -s ifconfig.me)"
 	exit 0
 end
 
@@ -74,9 +74,9 @@ end
 sudo systemctl start wg-quick-surfshark-$target_code.service
 
 if systemctl is-active --quiet wg-quick-surfshark-$target_code.service
-	set current_ip (curl -s ifconfig.me)
     echo -e "$GREEN""Connected:  $active_code --> $target_code""$RESET"
-	echo -e "IP:           $current_ip"
+	echo -e "IP:           $(curl -s ifconfig.me)"
 else
     echo -e "$RED""Failed to connect ($target_code)""$RESET"
+	echo -e "IP: $(curl -s ifconfig.me)"
 end
