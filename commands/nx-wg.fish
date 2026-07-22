@@ -8,7 +8,7 @@ or exit 1
 set allowed_codes ch de jp kr uk us # list of allowed country codes
 set target_code "de" # default country (no input)
 
-if test $flags_count -eq 1; and test (count $argv) -gt 0
+if set -q _flag_s; or set -q _flag_o; or set -q _flag_r; and test (count $argv) -gt 0
 	echo -e "$RED""Flags cannot be used alongside a country code""$RESET"
 	exit 1
 end

@@ -47,7 +47,6 @@
 		"editor.insertSpaces": false,
 		"editor.tabSize": 4
 	},
-	"python.defaultInterpreterPath": "/home/skillp/.pyenv/versions/3.14.0/bin/python",
 	"python.terminal.activateEnvironment": false,
 	"[python]": {
 		"editor.insertSpaces": true,

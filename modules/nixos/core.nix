@@ -29,7 +29,7 @@
 
 		systemPackages = with pkgs; [
 			_7zz
-			btop
+			btop-rocm
 			file
 			git
 			kitty
