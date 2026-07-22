@@ -47,10 +47,23 @@ in
 				./vscode/vscode.nix
 			];
 
-			programs.btop = {
-				enable = true;
-				package = pkgs.btop-rocm;
-				settings.shown_boxes = "cpu mem net proc gpu0";
+			programs = {
+				btop = {
+					enable = true;
+					package = pkgs.btop-rocm;
+					settings.shown_boxes = "cpu mem net proc gpu0";
+				};
+
+				git = {
+					enable = true;
+					userEmail = "99091714+SkillpTm@users.noreply.github.com";
+					userName = "SkillpTm";
+
+					extraConfig = {
+						init.defaultBranch = "main";
+						push.autoSetupRemote = true;
+					};
+				};
 			};
 
 			xdg = {
