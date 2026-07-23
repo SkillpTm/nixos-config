@@ -19,6 +19,14 @@ let
 	};
 in
 {
+	gtk = {
+		enable = true;
+		cursorTheme = {
+			name = "We10XOS-cursors";
+			size = 24;
+		};
+	};
+
 	home = {
 		packages = [
 			we10xos-cursors
@@ -56,5 +64,10 @@ in
 	programs.plasma.workspace.cursor = {
 		theme = "We10XOS-cursors";
 		size = 24;
+	};
+
+	xresources.properties = {
+		"Xcursor.theme" = "We10XOS-cursors";
+		"Xcursor.size" = 24;
 	};
 }
