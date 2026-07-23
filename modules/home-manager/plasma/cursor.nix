@@ -22,6 +22,25 @@ in
 	home = {
 		packages = [ we10xos-cursors ];
 
+		activation.copyWe10XOSCursors = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+			THEME_NAME="We10XOS-cursors"
+
+			replace_with_real_files() {
+				local target_path=$1
+
+				if [ -L "$target_path" ]; then
+					$DRY_RUN_CMD unlink "$target_path"
+				fi
+
+				$DRY_RUN_CMD mkdir -p "$(dirname "$target_path")"
+				$DRY_RUN_CMD cp -rLT "${we10xos-cursors}/share/icons/$THEME_NAME" "$target_path"
+				$DRY_RUN_CMD chmod -R u+rwX "$target_path"
+			}
+
+			replace_with_real_files "$HOME/.local/share/icons/$THEME_NAME"
+			replace_with_real_files "$HOME/.icons/$THEME_NAME"
+		'';
+
 		pointerCursor = {
 			name = "We10XOS-cursors";
 			package = we10xos-cursors;
