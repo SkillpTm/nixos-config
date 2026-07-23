@@ -23,7 +23,7 @@ in
 		packages = [
 			we10xos-cursors
 
-			(pkgs.discord.overrideAttrs (old: {
+			(pkgs.discord-canary.overrideAttrs (old: {
 				commandLineArgs = (old.commandLineArgs or "") + " --enable-features=UseOzonePlatform --ozone-platform=wayland";
 			}))
 		];
