@@ -40,9 +40,6 @@
 			(pkgs.writers.writeFishBin "nx-clean"
 				(builtins.readFile ../../commands/nx-clean.fish)
 			)
-			(pkgs.writers.writeFishBin "nx-reset"
-				(builtins.readFile ../../commands/nx-reset.fish)
-			)
 			(pkgs.writers.writeFishBin "nx-switch"
 				(builtins.readFile ../../commands/nx-switch.fish)
 			)
