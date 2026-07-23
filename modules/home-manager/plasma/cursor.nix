@@ -27,7 +27,7 @@ in
 			TARGET="$HOME/.local/share/icons/We10XOS-cursors"
 
 			$DRY_RUN_CMD mkdir -p "$HOME/.local/share/icons"
-			$DRY_RUN_CMD cp -Rf "${we10xos-cursors}/share/icons/We10XOS-cursors" "$TARGET"
+			$DRY_RUN_CMD cp -Rf "${we10xos-cursors}/share/icons" "$TARGET"
 			$DRY_RUN_CMD chmod -R u+w "$TARGET"
 		'';
 	};
