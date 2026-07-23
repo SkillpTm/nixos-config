@@ -2,7 +2,7 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
-argparse -x s,o,r 's/status' 'o/off' 'r/reconnect' -- $argv
+argparse --max-args 1 -x s,o,r 's/status' 'o/off' 'r/reconnect' -- $argv
 or exit 1
 
 set allowed_codes ch de jp kr uk us # list of allowed country codes

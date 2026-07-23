@@ -2,18 +2,22 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
-argparse -x b,u 'b/boot' 't/test' 'u/update' -- $argv
+argparse --max-args 0 -x b,u,s,t 'b/boot' 's/switch' 't/test' 'u/update' --
 or exit 1
+
+if not set -q _flag_b; and not set -q _flag_u; and not set -q _flag_t
+    set _flag_s 1
+end
 
 if set -q _flag_b
 	set type "Boot"
 else if set -q _flag_u
 	set type "Update"
-else
+else if set -q _flag_s
 	set type "Switch"
 end
 
-cd $HOME/nix-config || exit 1
+cd $HOME/nixos-config || exit 1
 set -l stashed false
 
 if not set -q _flag_u
@@ -42,10 +46,10 @@ else
 end
 
 set NEW_GEN (nixos-rebuild list-generations | awk '$NF=="True" {print $1}')
+
 if $stashed
 	git stash pop
 end
-
 
 if test "$NEW_GEN" = "$OLD_GEN"
 	git reset > /dev/null
@@ -69,7 +73,7 @@ if set -q _flag_b
 end
 
 set HASH (basename (readlink -f /nix/var/nix/profiles/system) | cut -d- -f1)
-git commit -m "$type: Generation $NEW_GEN ($HASH)"
+git commit -m "$type: $hostname Generation $NEW_GEN ($HASH)"
 
 nvd diff /nix/var/nix/profiles/system-$OLD_GEN-link /nix/var/nix/profiles/system
 echo -e "$GREEN""$type: Generation $NEW_GEN ($HASH)""$RESET"

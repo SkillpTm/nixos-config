@@ -12,7 +12,13 @@
 
 		loader = {
 			efi.canTouchEfiVariables = true;
-			systemd-boot.enable = true;
+
+			grub = {
+				enable = true;
+				device = "nodev";
+				efiSupport = true;
+				useOSProber = true;
+			};
 		};
 	};
 
@@ -40,8 +46,8 @@
 			(pkgs.writers.writeFishBin "nx-clean"
 				(builtins.readFile ../../commands/nx-clean.fish)
 			)
-			(pkgs.writers.writeFishBin "nx-switch"
-				(builtins.readFile ../../commands/nx-switch.fish)
+			(pkgs.writers.writeFishBin "nx-rebuild"
+				(builtins.readFile ../../commands/nx-rebuild.fish)
 			)
 			(pkgs.writers.writeFishBin "nx-wg"
 				(builtins.readFile ../../commands/nx-wg.fish)
