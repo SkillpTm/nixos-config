@@ -33,10 +33,14 @@
 			file
 			git
 			kitty
+			kdePackages.kdbusaddons
 			nvd
 			wl-clipboard
 
 			(pkgs.writers.writeFishBin "nx-clean"
+				(builtins.readFile ../../commands/nx-clean.fish)
+			)
+			(pkgs.writers.writeFishBin "nx-reset"
 				(builtins.readFile ../../commands/nx-clean.fish)
 			)
 			(pkgs.writers.writeFishBin "nx-switch"
