@@ -1,6 +1,5 @@
-rm -rf ~/.local/share/Trash/files/*
-rm -rf ~/.local/share/Trash/info/*
-rm -rf ~/.local/share/Trash/expunged/*
+rm -rf ~/.local/share/Trash/files ~/.local/share/Trash/info ~/.local/share/Trash/expunged
+mkdir -p ~/.local/share/Trash/{files,info,expunged}
 
 sudo journalctl --vacuum-time=30d
 sudo nix-collect-garbage --delete-older-than 30d
