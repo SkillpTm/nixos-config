@@ -43,6 +43,7 @@ in
 			imports = [
 				./dolphin/dolphin.nix
 				./fish/fish.nix
+				./plasma/cursor.nix
 				./plasma/plasma.nix
 				./vscode/vscode.nix
 			];

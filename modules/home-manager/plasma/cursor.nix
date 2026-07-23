@@ -14,60 +14,26 @@ let
 
 		installPhase = ''
 			mkdir -p $out/share/icons/We10XOS-cursors
-			cp -va dist/* $out/share/icons/We10XOS-cursors/
+			cp -a dist/* $out/share/icons/We10XOS-cursors/
 		'';
 	};
 in
 {
-	gtk = {
-		enable = true;
-		cursorTheme = {
-			name = "We10XOS-cursors";
-			size = 24;
-		};
-	};
 
 	home = {
-		packages = [
-			we10xos-cursors
-
-			(pkgs.discord-canary.overrideAttrs (old: {
-				commandLineArgs = (old.commandLineArgs or "") + " --enable-features=UseOzonePlatform --ozone-platform=wayland";
-			}))
-		];
+		packages = [ we10xos-cursors ];
 
 		activation.copyWe10XOSCursors = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-			THEME_NAME="We10XOS-cursors"
+			TARGET="$HOME/.local/share/icons/We10XOS-cursors"
 
-			replace_with_real_files() {
-				local target_path=$1
-
-				if [ -L "$target_path" ]; then
-					$DRY_RUN_CMD unlink "$target_path"
-				fi
-
-				$DRY_RUN_CMD mkdir -p "$(dirname "$target_path")"
-				$DRY_RUN_CMD cp -rLT "${we10xos-cursors}/share/icons/$THEME_NAME" "$target_path"
-				$DRY_RUN_CMD chmod -R u+rwX "$target_path"
-			}
-
-			replace_with_real_files "$HOME/.local/share/icons/$THEME_NAME"
-			replace_with_real_files "$HOME/.icons/$THEME_NAME"
+			$DRY_RUN_CMD mkdir -p "$HOME/.local/share/icons"
+			$DRY_RUN_CMD cp -Rf "${we10xos-cursors}/share/icons/We10XOS-cursors" "$TARGET"
+			$DRY_RUN_CMD chmod -R u+w "$TARGET"
 		'';
-
-		sessionVariables = {
-			XCURSOR_THEME = "We10XOS-cursors";
-			XCURSOR_SIZE = "24";
-		};
 	};
 
 	programs.plasma.workspace.cursor = {
 		theme = "We10XOS-cursors";
 		size = 24;
-	};
-
-	xresources.properties = {
-		"Xcursor.theme" = "We10XOS-cursors";
-		"Xcursor.size" = 24;
 	};
 }
