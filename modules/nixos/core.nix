@@ -174,6 +174,7 @@
 			spotify
 			tutanota-desktop
 			wofi-emoji
+			xeyes
 
 			(callPackage ../custom/whale/naver-whale.nix {})
 		];
