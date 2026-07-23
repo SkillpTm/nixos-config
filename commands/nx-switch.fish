@@ -2,7 +2,7 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
-argparse -x b,u 'b/boot' 'u/update' -- $argv
+argparse -x b,u 'b/boot' 't/test' 'u/update' -- $argv
 or exit 1
 
 if set -q _flag_b
@@ -35,6 +35,8 @@ set OLD_GEN (nixos-rebuild list-generations | awk '$NF=="True" {print $1}')
 
 if set -q _flag_b
 	sudo nixos-rebuild boot --flake .#$hostname --show-trace --no-reexec
+else if set -q _flag_t
+	sudo nixos-rebuild test --flake .#$hostname --show-trace --no-reexec
 else
 	sudo nixos-rebuild switch --flake .#$hostname --show-trace --no-reexec
 end
@@ -47,11 +49,16 @@ end
 
 if test "$NEW_GEN" = "$OLD_GEN"
 	git reset > /dev/null
-	echo -e "$GREEN""No generational changes.""$RESET"
+
+	if not set -q _flag_t
+		echo -e "$GREEN""No generational changes""$RESET"
+	else
+		echo -e "$GREEN""Test rebuild applied""$RESET"
+	end
 	exit 0
 end
 
-# Major version change may update flake.lock somewhere during building, so we need to re-add changes.
+# Major version change may update flake.lock somewhere during building, so we need to re-add changes
 if set -q _flag_b
 	git add .
 end

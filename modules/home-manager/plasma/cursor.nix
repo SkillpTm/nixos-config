@@ -24,11 +24,16 @@ in
 		packages = [ we10xos-cursors ];
 
 		activation.copyWe10XOSCursors = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-			TARGET="$HOME/.local/share/icons"
+			TARGET_CONF="$HOME/.config/kcminputrc"
+			TARGET_ICONS="$HOME/.local/share/icons"
 
 			$DRY_RUN_CMD mkdir -p "$HOME/.local/share/icons"
-			$DRY_RUN_CMD cp -Rf "${we10xos-cursors}/share/icons/We10XOS-cursors" "$TARGET"
-			$DRY_RUN_CMD chmod -R u+w "$TARGET"
+			$DRY_RUN_CMD cp -Rf "${we10xos-cursors}/share/icons/We10XOS-cursors" "$TARGET_ICONS"
+			$DRY_RUN_CMD chmod -R u+w "$TARGET_ICONS"
+
+			$DRY_RUN_CMD mkdir -p "$HOME/.config"
+			$DRY_RUN_CMD cp -f "${./kcminputrc}" "$TATARGET_CONFRGET"
+			$DRY_RUN_CMD chmod u+w "$TARGET_CONF"
 		'';
 	};
 

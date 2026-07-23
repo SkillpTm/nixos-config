@@ -10,8 +10,8 @@ in
 		activation.setupVSCodeSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
 			TARGET="$HOME/.config/Code/User/settings.json"
 
-			cp -f "${./settings.json}" "$TARGET"
-			chmod u+w "$TARGET"
+			$DRY_RUN_CMD cp -f "${./settings.json}" "$TARGET"
+			$DRY_RUN_CMD chmod u+w "$TARGET"
 		'';
 	};
 
