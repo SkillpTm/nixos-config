@@ -165,7 +165,6 @@
 			python314
 			spotify
 			tutanota-desktop
-			wofi-emoji
 
 			(callPackage ../custom/whale/naver-whale.nix {})
 		];
