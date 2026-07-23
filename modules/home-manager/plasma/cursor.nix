@@ -20,7 +20,13 @@ let
 in
 {
 	home = {
-		packages = [ we10xos-cursors ];
+		packages = [
+			we10xos-cursors
+
+			(pkgs.discord.overrideAttrs (old: {
+				commandLineArgs = (old.commandLineArgs or "") + " --enable-features=UseOzonePlatform --ozone-platform=wayland";
+			}))
+		];
 
 		activation.copyWe10XOSCursors = config.lib.dag.entryAfter [ "writeBoundary" ] ''
 			THEME_NAME="We10XOS-cursors"
@@ -40,14 +46,6 @@ in
 			replace_with_real_files "$HOME/.local/share/icons/$THEME_NAME"
 			replace_with_real_files "$HOME/.icons/$THEME_NAME"
 		'';
-
-		pointerCursor = {
-			name = "We10XOS-cursors";
-			package = we10xos-cursors;
-			size = 24;
-			gtk.enable = true;
-			x11.enable = true;
-		};
 
 		sessionVariables = {
 			XCURSOR_THEME = "We10XOS-cursors";
