@@ -32,7 +32,7 @@ in
 			$DRY_RUN_CMD chmod -R u+w "$TARGET_ICONS"
 
 			$DRY_RUN_CMD mkdir -p "$HOME/.config"
-			$DRY_RUN_CMD cp -f "${./kcminputrc}" "$TATARGET_CONFRGET"
+			$DRY_RUN_CMD cp -f "${./kcminputrc}" "$TARGET_CONF"
 			$DRY_RUN_CMD chmod u+w "$TARGET_CONF"
 		'';
 	};

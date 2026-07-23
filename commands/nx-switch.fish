@@ -55,6 +55,11 @@ if test "$NEW_GEN" = "$OLD_GEN"
 	else
 		echo -e "$GREEN""Test rebuild applied""$RESET"
 	end
+
+	if set -q _flag_u
+		git restore flake.lock > /dev/null
+	end
+
 	exit 0
 end
 
