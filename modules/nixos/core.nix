@@ -163,7 +163,6 @@
 			discord-canary
 			docker
 			fastfetch
-			gimp-with-plugins
 			kdePackages.filelight
 			kdePackages.kcalc
 			kdePackages.kcharselect

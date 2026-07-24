@@ -39,7 +39,9 @@ in
 			gpu-screen-recorder
 			go
 			haruna
+			krita
 			modrinth-app
+			pinta
 			qbittorrent
 			shotcut
 			steam
