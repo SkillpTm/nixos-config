@@ -37,7 +37,6 @@
 			_7zz
 			btop-rocm
 			file
-			git
 			kitty
 			kdePackages.kdbusaddons
 			nvd
@@ -117,6 +116,7 @@
 
 	programs = {
 		fish.enable = true;
+		git.enable = true;
 		partition-manager.enable = true;
 
 		localsend = {

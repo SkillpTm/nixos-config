@@ -2,7 +2,7 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
-argparse --max-args 0 -x b,u,s,t 'b/boot' 's/switch' 't/test' 'u/update' --
+argparse --max-args 0 -x b,u,s,t 'b/boot' 's/switch' 't/test' 'u/update' -- $argv
 or exit 1
 
 if not set -q _flag_b; and not set -q _flag_u; and not set -q _flag_t
