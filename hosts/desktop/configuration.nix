@@ -24,6 +24,13 @@ in
 
 	programs = {
 		firefox.enable = true;
+		gpu-screen-recorder.enable = true;
+
+		steam = {
+			enable = true;
+			dedicatedServer.openFirewall = true;
+			remotePlay.openFirewall = true;
+		};
 	};
 
 	swapDevices = [{
@@ -38,7 +45,6 @@ in
 		packages = with pkgs; [
 			brave
 			ffmpeg
-			gpu-screen-recorder
 			go
 			haruna
 			krita
@@ -46,7 +52,6 @@ in
 			pinta
 			qbittorrent
 			shotcut
-			steam
 			vlc
 			yt-dlp
 		];
