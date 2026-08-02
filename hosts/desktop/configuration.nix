@@ -49,7 +49,6 @@ in
 			haruna
 			krita
 			modrinth-app
-			pinta
 			qbittorrent
 			shotcut
 			vlc
