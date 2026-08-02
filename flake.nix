@@ -25,6 +25,14 @@
 				};
 				modules = [ ./hosts/desktop/configuration.nix ];
 			};
+			laptop = nixpkgs.lib.nixosSystem {
+				specialArgs = {
+					inherit inputs;
+					me = "skillp";
+					originalNixosVersion = "26.05";
+				};
+				modules = [ ./hosts/laptop/configuration.nix ];
+			};
 		};
 	};
 }
