@@ -19,7 +19,7 @@
 		description = "Skillp";
 
 		packages = with pkgs; [
-            libreoffice-qt-fresh
+			libreoffice-qt-fresh
 		];
 	};
 }

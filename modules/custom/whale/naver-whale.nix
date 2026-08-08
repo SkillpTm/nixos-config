@@ -75,7 +75,6 @@ pkgs.buildFHSEnv {
 		exec ${whale-deb}/opt/naver/whale/whale \
 			--enable-gpu \
 			--ozone-platform=wayland \
-			--disable-gpu-sandbox \
 			--use-gl=angle \
 			--use-angle=vulkan \
 			--enable-features=Vulkan,VaapiVideoDecoder \
