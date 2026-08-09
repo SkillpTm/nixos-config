@@ -40,6 +40,7 @@
 			kitty
 			kdePackages.kdbusaddons
 			nvd
+			mediainfo
 			wl-clipboard
 
 			(pkgs.writers.writeFishBin "nx-clean"
