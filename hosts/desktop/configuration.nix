@@ -48,7 +48,6 @@ in
 			go
 			haruna
 			krita
-			modrinth-app
 			qbittorrent
 			shotcut
 			vlc
