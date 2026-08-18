@@ -38,6 +38,7 @@ in
 			ms-python.python
 			ms-python.vscode-pylance
 			ms-python.vscode-python-envs
+			ms-vscode-remote.remote-containers
 			pkief.material-icon-theme
 			ritwickdey.liveserver
 			zainchen.json
