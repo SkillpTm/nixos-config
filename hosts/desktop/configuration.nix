@@ -49,6 +49,7 @@ in
 			haruna
 			krita
 			qbittorrent
+			rocmPackages.rocm-smi
 			shotcut
 			vlc
 			yt-dlp
