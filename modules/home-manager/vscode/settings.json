@@ -1,7 +1,7 @@
 {
 	"files.exclude": {
 		"**/__pycache__": true,
-		"**/.DS_Store": false,
+		"**/.DS_Store": true,
 		"**/.DS_STORE": true,
 		"**/.gitkeep": true,
 		"**/.import": true,
@@ -9,6 +9,8 @@
 		"**/**.import": true,
 		"**/node_modules": true
 	},
+	"chat.utilityModel": "copilot/gpt-5.6-luna",
+	"chat.utilitySmallModel": "copilot/gpt-5.6-luna",
 	"editor.accessibilitySupport": "off",
 	"editor.detectIndentation": false,
 	"editor.formatOnSave": true,
@@ -19,6 +21,7 @@
 	"editor.wordWrap": "on",
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
+	"remote.autoForwardPortsSource": "hybrid",
 	"search.maxResults": null,
 	"security.workspace.trust.untrustedFiles": "open",
 	"terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
@@ -102,8 +105,6 @@
 	"github.copilot.chat.codeGeneration.useInstructionFiles": false,
 	"github.copilot.chat.copilotDebugCommand.enabled": false,
 	"github.copilot.chat.customInstructionsInSystemMessage": false,
-	"github.copilot.chat.edits.suggestRelatedFilesForTests": false,
-	"github.copilot.chat.edits.suggestRelatedFilesFromGitHistory": false,
 	"github.copilot.chat.imageUpload.enabled": false,
 	"github.copilot.chat.localeOverride": "en",
 	"github.copilot.chat.newWorkspaceCreation.enabled": false,
@@ -112,11 +113,9 @@
 	"github.copilot.chat.setupTests.enabled": false,
 	"github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
 	"github.copilot.chat.useProjectTemplates": false,
-	"github.copilot.chat.useResponsesApi": false,
 	"github.copilot.editor.enableCodeActions": false,
 	"github.copilot.nextEditSuggestions.fixes": false,
 	"github.copilot.renameSuggestions.triggerAutomatically": false,
-	"github.copilot.advanced": {},
 	"github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
 	"github.copilot.chat.commitMessageGeneration.instructions": [
 		{
@@ -135,7 +134,7 @@
 			"text": "If changes span multiple types, choose the single most dominant type for the subject line. Summarize the rest of the changes briefly in the body if absolutely necessary."
 		},
 		{
-			"text": "Keep the subject line description below 10 words, if possible. Only include a body if absolutly required, line breaks are forbidden, outside of description-body seperation."
+			"text": "Keep the subject line description below 20 words, if possible. Only include a body if absolutly required, line breaks are forbidden, outside of description-body seperation."
 		}
 	]
 }
