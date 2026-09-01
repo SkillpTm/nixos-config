@@ -1,5 +1,8 @@
 if status is-interactive
-	fastfetch
-	nx-wg -s
 	set -g fish_greeting
+	fastfetch
+
+	if type -q nx-wg
+		nx-wg -s
+	end
 end

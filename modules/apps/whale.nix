@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-	hash = builtins.replaceStrings ["\n" "\r"] ["" ""] (builtins.readFile ./naver-whale-hash.txt);
+	hash = builtins.replaceStrings ["\n" "\r"] ["" ""] (builtins.readFile ../../assets/configs/whale/naver-whale-hash.txt);
 
 	whale-deb = pkgs.stdenv.mkDerivation rec {
 		pname = "naver-whale-unwrapped";

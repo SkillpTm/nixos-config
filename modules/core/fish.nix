@@ -1,0 +1,30 @@
+{ lib, me, pkgs, ... }:
+
+{
+	programs.fish.enable = true;
+	users.users.${me}.shell = pkgs.fish;
+
+	home-manager = {
+		users.${me} = { lib, ... }: {
+			home = {
+				packages = [ pkgs.nerd-fonts.meslo-lg ];
+
+				activation.tide-configure = lib.hm.dag.entryAfter ["writeBoundary"] ''
+					$DRY_RUN_CMD ${pkgs.fish}/bin/fish -c "tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Light --show_time='24-hour format' --classic_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=No"
+				'';
+			};
+
+			programs.fish = {
+				enable = true;
+				interactiveShellInit = builtins.readFile ../../assets/configs/fish/config.fish;
+
+				plugins = [
+					{
+						name = "tide";
+						src = pkgs.fishPlugins.tide.src;
+					}
+				];
+			};
+		};
+	};
+}
