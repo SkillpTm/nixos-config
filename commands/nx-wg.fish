@@ -2,6 +2,16 @@ set GREEN "\033[1;32m"
 set RED "\033[1;31m"
 set RESET "\033[0m"
 
+function get_ip
+	set -l current_ip (curl -s --connect-timeout 1 --max-time 2 ifconfig.me)
+
+	if test -z "$current_ip"
+		echo "Offline"
+	else
+		echo "$current_ip"
+	end
+end
+
 argparse --max-args 1 -x s,o,r 's/status' 'o/off' 'r/reconnect' -- $argv
 or exit 1
 
@@ -26,18 +36,18 @@ if set -q _flag_s
 	else
 		echo -e "Status:  ""$RED""disconnected""$RESET"
 	end
-	echo -e "IP:      $(curl -s ifconfig.me)"
+	echo -e "IP:      $(get_ip)"
 	exit 0
 end
 
 if set -q _flag_o
 	if test "$active_code" = "off"
 		echo -e "$RED""Already disconnected""$RESET"
-		echo -e "IP: $(curl -s ifconfig.me)"
+		echo -e "IP:      $(get_ip)"
 	else
 		sudo systemctl stop $active_service
 		echo -e "$RED""Disconnected:  $active_code --> off""$RESET"
-		echo -e "IP:            $(curl -s ifconfig.me)"
+		echo -e "IP:            $(get_ip)"
 	end
 	exit 0
 end
@@ -45,7 +55,7 @@ end
 if set -q _flag_r
 	if test "$active_code" = "off"
 		echo -e "$RED""Cannot reconnect, already disconnected""$RESET"
-		echo -e "IP: $(curl -s ifconfig.me)"
+		echo -e "IP:      $(get_ip)"
 		exit 0
 	end
 	set target_code $active_code
@@ -68,9 +78,9 @@ end
 sudo systemctl start wg-quick-surfshark-$target_code.service
 
 if systemctl is-active --quiet wg-quick-surfshark-$target_code.service
-    echo -e "$GREEN""Connected:  $active_code --> $target_code""$RESET"
-	echo -e "IP:         $(curl -s ifconfig.me)"
+	echo -e "$GREEN""Connected:  $active_code --> $target_code""$RESET"
+	echo -e "IP:         $(get_ip)"
 else
-    echo -e "$RED""Failed to connect ($target_code)""$RESET"
-	echo -e "IP: $(curl -s ifconfig.me)"
+	echo -e "$RED""Failed to connect ($target_code)""$RESET"
+	echo -e "IP:         $(get_ip)"
 end
