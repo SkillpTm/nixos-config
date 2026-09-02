@@ -3,19 +3,14 @@
 {
 	environment.systemPackages = with pkgs; [ wl-clipboard ];
 
-	boot = {
-		binfmt.emulatedSystems = [ "aarch64-linux" ];
-		kernelPackages = pkgs.linuxPackages_latest;
+	boot.loader = {
+		efi.canTouchEfiVariables = true;
 
-		loader = {
-			efi.canTouchEfiVariables = true;
-
-			grub = {
-				enable = true;
-				device = "nodev";
-				efiSupport = true;
-				useOSProber = true;
-			};
+		grub = {
+			enable = true;
+			device = "nodev";
+			efiSupport = true;
+			useOSProber = true;
 		};
 	};
 

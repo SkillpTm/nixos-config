@@ -68,9 +68,7 @@ if test "$NEW_GEN" = "$OLD_GEN"
 end
 
 # Major version change may update flake.lock somewhere during building, so we need to re-add changes
-if set -q _flag_b
-	git add .
-end
+git add .
 
 set HASH (basename (readlink -f /nix/var/nix/profiles/system) | cut -d- -f1)
 git commit -m "$type: $hostname Generation $NEW_GEN ($HASH)"
