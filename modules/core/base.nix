@@ -12,24 +12,9 @@
 	time.timeZone = "Europe/Berlin";
 	virtualisation.docker.enable = true;
 
-	boot = {
-		kernelPackages = pkgs.linuxPackages_latest;
-
-		loader = {
-			efi.canTouchEfiVariables = true;
-
-			grub = {
-				enable = true;
-				device = "nodev";
-				efiSupport = true;
-				useOSProber = true;
-			};
-		};
-	};
-
 	environment.systemPackages = with pkgs; [
 		_7zz
-		btop-rocm
+		(if stdenv.hostPlatform.isx86_64 then btop-rocm else btop)
 		file
 		nvd
 		mediainfo
@@ -54,7 +39,7 @@
 			programs = {
 				btop = {
 					enable = true;
-					package = pkgs.btop-rocm;
+					package = if pkgs.stdenv.hostPlatform.isx86_64 then pkgs.btop-rocm else pkgs.btop;
 					settings.shown_boxes = "cpu mem net proc gpu0";
 				};
 

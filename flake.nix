@@ -1,6 +1,7 @@
 {
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+		nixos-hardware.url = "github:nixos/nixos-hardware/master";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
@@ -16,7 +17,7 @@
 		};
 	};
 
-	outputs = { nixpkgs, nixpkgs-unstable, ... } @ inputs:
+	outputs = { nixpkgs, nixpkgs-unstable, nixos-hardware, ... } @ inputs:
 		let
 			overlay-unstable = final: prev: {
 				unstable = import nixpkgs-unstable {
@@ -27,6 +28,7 @@
 		in {
 			nixosConfigurations = {
 				desktop = nixpkgs.lib.nixosSystem {
+					system = "x86_64-linux";
 					specialArgs = {
 						inherit inputs;
 						me = "skillp";
@@ -38,6 +40,7 @@
 					];
 				};
 				laptop = nixpkgs.lib.nixosSystem {
+					system = "x86_64-linux";
 					specialArgs = {
 						inherit inputs;
 						me = "skillp";
@@ -46,6 +49,18 @@
 					modules = [
 						{ nixpkgs.overlays = [ overlay-unstable ]; }
 						./hosts/laptop/configuration.nix
+					];
+				};
+				raspberrypi = nixpkgs.lib.nixosSystem {
+					system = "aarch64-linux";
+					specialArgs = {
+						inherit inputs;
+						me = "skillp";
+						originalNixosVersion = "26.05";
+					};
+					modules = [
+						nixos-hardware.nixosModules.raspberry-pi-4
+						./hosts/raspberrypi/configuration.nix
 					];
 				};
 			};
