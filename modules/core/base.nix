@@ -3,10 +3,10 @@
 {
 	imports = [ inputs.home-manager.nixosModules.home-manager ];
 
+	boot.kernelPackages = pkgs.linuxPackages_latest;
 	console.keyMap = "de";
 	networking.networkmanager.enable = true;
 	nixpkgs.config.allowUnfree = true;
-	programs.git.enable = true;
 	security.rtkit.enable = true;
 	system.stateVersion = originalNixosVersion;
 	time.timeZone = "Europe/Berlin";
@@ -82,6 +82,11 @@
 		"nix-command"
 		"flakes"
 	];
+
+	programs = {
+		git.enable = true;
+		ssh.knownHosts."github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+	};
 
 	users.users.${me} = {
 		description = "Skillp";

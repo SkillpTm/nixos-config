@@ -29,39 +29,45 @@
 			nixosConfigurations = {
 				desktop = nixpkgs.lib.nixosSystem {
 					system = "x86_64-linux";
+
+					modules = [
+						{ nixpkgs.overlays = [ overlay-unstable ]; }
+						./hosts/desktop/configuration.nix
+					];
+
 					specialArgs = {
 						inherit inputs;
 						me = "skillp";
 						originalNixosVersion = "25.11";
 					};
-					modules = [
-						{ nixpkgs.overlays = [ overlay-unstable ]; }
-						./hosts/desktop/configuration.nix
-					];
 				};
 				laptop = nixpkgs.lib.nixosSystem {
 					system = "x86_64-linux";
-					specialArgs = {
-						inherit inputs;
-						me = "skillp";
-						originalNixosVersion = "26.05";
-					};
+
 					modules = [
 						{ nixpkgs.overlays = [ overlay-unstable ]; }
 						./hosts/laptop/configuration.nix
 					];
-				};
-				raspberrypi = nixpkgs.lib.nixosSystem {
-					system = "aarch64-linux";
+
 					specialArgs = {
 						inherit inputs;
 						me = "skillp";
 						originalNixosVersion = "26.05";
 					};
+				};
+				raspberrypi = nixpkgs.lib.nixosSystem {
+					system = "aarch64-linux";
+
 					modules = [
 						nixos-hardware.nixosModules.raspberry-pi-4
 						./hosts/raspberrypi/configuration.nix
 					];
+
+					specialArgs = {
+						inherit inputs;
+						me = "skillp";
+						originalNixosVersion = "26.05";
+					};
 				};
 			};
 		};
