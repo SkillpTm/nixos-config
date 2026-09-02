@@ -39,7 +39,7 @@ in
 		imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
 		home = {
-    		file.".face".source = ../../assets/logos/nixos.png;
+			file.".face".source = ../../assets/logos/nixos.png;
 			file.".face.icon".source = ../../assets/logos/nixos.png;
 			packages = [ we10xos-cursors ];
 

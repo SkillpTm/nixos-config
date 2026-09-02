@@ -3,6 +3,22 @@
 {
 	environment.systemPackages = with pkgs; [ wl-clipboard ];
 
+	boot = {
+		binfmt.emulatedSystems = [ "aarch64-linux" ];
+		kernelPackages = pkgs.linuxPackages_latest;
+
+		loader = {
+			efi.canTouchEfiVariables = true;
+
+			grub = {
+				enable = true;
+				device = "nodev";
+				efiSupport = true;
+				useOSProber = true;
+			};
+		};
+	};
+
 	home-manager.users.${me}.xdg = {
 		configFile."mimeapps.list".force = true;
 		dataFile = { "icons/hicolor/scalable/apps/nixos-logo-white.png".source = ../../assets/logos/nixos-white.png; };
