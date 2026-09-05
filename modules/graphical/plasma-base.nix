@@ -25,6 +25,7 @@ in
 		systemPackages = with pkgs; [ kdePackages.kdbusaddons ];
 
 		plasma6.excludePackages = with pkgs.kdePackages; [
+			discover
 			elisa
 			kate
 			khelpcenter
