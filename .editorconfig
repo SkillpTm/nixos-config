@@ -1,3 +1,5 @@
+root=true
+
 [*.{nix,json,fish}]
 charset=utf-8
 indent_size=tab

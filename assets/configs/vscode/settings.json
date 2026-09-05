@@ -46,7 +46,6 @@
 	"liveServer.settings.donotShowInfoMsg": true,
 	"[nix]": {
 		"editor.detectIndentation": false,
-		"editor.formatOnSave": false,
 		"editor.insertSpaces": false,
 		"editor.tabSize": 4
 	},
@@ -93,7 +92,6 @@
 	"go.useLanguageServer": true,
 	"[go]": {
 		"editor.autoIndent": "keep",
-		"editor.formatOnSave": true,
 		"editor.formatOnType": false
 	},
 	"gopls": {
