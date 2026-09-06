@@ -4,6 +4,8 @@
 		nixos-hardware.url = "github:nixos/nixos-hardware/master";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+		# Pins vscode to 1.133
+		vscode-pin.url = "github:nixos/nixpkgs/3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2";
 
 		home-manager = {
 			url = "github:nix-community/home-manager/release-26.05";
@@ -24,6 +26,10 @@
 					system = prev.stdenv.hostPlatform.system;
 					config.allowUnfree = true;
 				};
+				vscode-pinned = import inputs.vscode-pin {
+                    system = prev.stdenv.hostPlatform.system;
+                    config.allowUnfree = true;
+                };
 			};
 		in {
 			nixosConfigurations = {
