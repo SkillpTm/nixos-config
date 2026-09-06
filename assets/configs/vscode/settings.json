@@ -46,6 +46,7 @@
 	"liveServer.settings.donotShowInfoMsg": true,
 	"[nix]": {
 		"editor.detectIndentation": false,
+		"editor.formatOnSave": false,
 		"editor.insertSpaces": false,
 		"editor.tabSize": 4
 	},

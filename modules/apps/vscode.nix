@@ -44,7 +44,7 @@ in
 
 			programs.vscode = {
 				enable = true;
-				package = pkgs.unstable.vscode;
+				package = pkgs.unstable.vscode-fhs;
 				profiles.default.extensions = with pkgs.vscode-extensions; [
 					christian-kohler.path-intellisense
 					dbaeumer.vscode-eslint
@@ -53,7 +53,6 @@ in
 					ecmel.vscode-html-css
 					editorconfig.editorconfig
 					formulahendry.auto-rename-tag
-					github.copilot-chat
 					golang.go
 					jnoortheen.nix-ide
 					mechatroner.rainbow-csv
