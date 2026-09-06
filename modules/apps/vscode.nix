@@ -44,7 +44,7 @@ in
 
 			programs.vscode = {
 				enable = true;
-				package = pkgs.unstable.vscode-fhs;
+				package = pkgs.unstable.vscode;
 				profiles.default.extensions = with pkgs.vscode-extensions; [
 					christian-kohler.path-intellisense
 					dbaeumer.vscode-eslint
