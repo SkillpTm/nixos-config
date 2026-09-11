@@ -37,6 +37,15 @@
 			home.stateVersion = originalNixosVersion;
 
 			programs = {
+				bat = {
+					enable = true;
+
+					config = {
+						paging = "never";
+						theme = "Visual Studio Dark+";
+					};
+				};
+
 				btop = {
 					enable = true;
 					package = if pkgs.stdenv.hostPlatform.isx86_64 then pkgs.btop-rocm else pkgs.btop;
@@ -99,9 +108,12 @@
 		];
 
 		packages = with pkgs; [
+			bat
 			cloc
 			docker
+			eza
 			fastfetch
+			tldr
 		];
 	};
 }

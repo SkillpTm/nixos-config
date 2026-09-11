@@ -27,9 +27,9 @@
 					config.allowUnfree = true;
 				};
 				vscode-pinned = import inputs.vscode-pin {
-                    system = prev.stdenv.hostPlatform.system;
-                    config.allowUnfree = true;
-                };
+					system = prev.stdenv.hostPlatform.system;
+					config.allowUnfree = true;
+				};
 			};
 		in {
 			nixosConfigurations = {
