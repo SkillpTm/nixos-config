@@ -16,9 +16,12 @@
 	environment.systemPackages = with pkgs; [
 		_7zz
 		(if stdenv.hostPlatform.isx86_64 then btop-rocm else btop)
+		eza
+		fastfetch
 		file
 		nvd
 		mediainfo
+
 
 		(pkgs.writers.writeFishBin "nx-clean"
 			(builtins.readFile ../../commands/nx-clean.fish)
@@ -34,7 +37,12 @@
 		useGlobalPkgs = true;
 		useUserPackages = true;
 
-		users.${me} = {
+		users = {
+			${me} = {};
+			root = {};
+		};
+
+		sharedModules = [{
 			home.stateVersion = originalNixosVersion;
 
 			programs = {
@@ -82,7 +90,7 @@
 					};
 				};
 			};
-		};
+		}];
 	};
 
 	i18n = {
@@ -119,8 +127,6 @@
 		packages = with pkgs; [
 			cloc
 			docker
-			eza
-			fastfetch
 		];
 	};
 }
