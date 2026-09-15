@@ -7,6 +7,7 @@
 	console.keyMap = "de";
 	networking.networkmanager.enable = true;
 	nixpkgs.config.allowUnfree = true;
+	programs.ssh.knownHosts."github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
 	security.rtkit.enable = true;
 	system.stateVersion = originalNixosVersion;
 	time.timeZone = "Europe/Berlin";
@@ -92,11 +93,6 @@
 		"flakes"
 	];
 
-	programs = {
-		git.enable = true;
-		ssh.knownHosts."github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-	};
-
 	users.users.${me} = {
 		description = "Skillp";
 		isNormalUser = true;
@@ -108,7 +104,6 @@
 		];
 
 		packages = with pkgs; [
-			bat
 			cloc
 			docker
 			eza
