@@ -68,6 +68,19 @@
 						};
 					};
 				};
+
+				tealdeer = {
+					enable = true;
+
+					settings = {
+						display.compact = true;
+
+						updates = {
+							auto_update = true;
+							auto_update_interval_hours = 14*24;
+						};
+					};
+				};
 			};
 		};
 	};
@@ -108,7 +121,6 @@
 			docker
 			eza
 			fastfetch
-			tldr
 		];
 	};
 }

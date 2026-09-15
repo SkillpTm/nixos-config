@@ -17,7 +17,6 @@
 			programs.fish = {
 				enable = true;
 				interactiveShellInit = builtins.readFile ../../assets/configs/fish/config.fish;
-				shellAliases.tldr = "tldr --short-options";
 
 				plugins = [
 					{
