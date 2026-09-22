@@ -19,7 +19,7 @@
 	};
 
 	users.users.${me}.packages = with pkgs; [
-		discord-canary
+		unstable.discord-canary
 		mpv
 		onlyoffice-desktopeditors
 		spotify
