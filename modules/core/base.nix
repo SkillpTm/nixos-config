@@ -21,7 +21,7 @@
 		file
 		nvd
 		mediainfo
-
+		sqlite
 
 		(pkgs.writers.writeFishBin "nx-clean"
 			(builtins.readFile ../../commands/nx-clean.fish)
