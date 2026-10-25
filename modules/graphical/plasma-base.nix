@@ -28,6 +28,7 @@ in
 			discover
 			elisa
 			kate
+			kdeconnect-kde
 			khelpcenter
 			kinfocenter
 			konsole

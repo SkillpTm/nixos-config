@@ -23,7 +23,7 @@
 		mpv
 		onlyoffice-desktopeditors
 		spotify
-		tutanota-desktop
+		unstable.tutanota-desktop
 		wofi-emoji
 		xeyes
 
