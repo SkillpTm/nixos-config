@@ -28,7 +28,6 @@ in
 			discover
 			elisa
 			kate
-			kdeconnect-kde
 			khelpcenter
 			kinfocenter
 			konsole
@@ -132,10 +131,11 @@ in
 		};
 	};
 
-	users.users.${me}.packages = with pkgs; [
-		kdePackages.filelight
-		kdePackages.kcalc
-		kdePackages.kcharselect
-		kdePackages.isoimagewriter
+	users.users.${me}.packages = with pkgs.kdePackages; [
+		filelight
+		kcalc
+		kcharselect
+		kdeconnect-kde
+		isoimagewriter
 	];
 }
