@@ -19,6 +19,7 @@ let
 	};
 in
 {
+	programs.kdeconnect.enable = true;
 	services.desktopManager.plasma6.enable = true;
 
 	environment = {
@@ -135,7 +136,6 @@ in
 		filelight
 		kcalc
 		kcharselect
-		kdeconnect-kde
 		isoimagewriter
 	];
 }
